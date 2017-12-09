@@ -15,6 +15,13 @@ module.exports = merge(common, {
 			      use: ['css-loader', 'less-loader']
 			    })
 			},
+			{
+  			test: /\.(png|jpeg|ttf|...)$/,
+  			use: [
+   				{ loader: 'url-loader', options: { limit: 8192 } } 
+   				// limit => file.size =< 8192 bytes ? DataURI : File
+  ]
+}
 		]
 	},
   plugins: [

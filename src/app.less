@@ -1,39 +1,4 @@
 
-@main_width: 70vw;
-@main_height: 90vh;
-/* Portrait */
-@media screen 
-  // and (device-width: 360px) 
-  // and (device-height: 640px) 
-  // and (-webkit-device-pixel-ratio: 3) 
-  and (orientation: portrait) {
-    .menu__button:before {
-      // content: 'P';
-    }
-    .game, .b-menu {
-      width: 95vw;
-      height: 95vw;
-    }
-}
-
-/* Landscape */
-@media screen 
-  // and (device-width: 360px) 
-  // and (device-height: 640px) 
-  // and (-webkit-device-pixel-ratio: 3) 
-  and (orientation: landscape) {
-    .menu__button:before {
-      // content: 'L';
-    }
-
-    .game, .b-menu {
-      width: 95vh;
-      height: 95vh;
-    }
-}
-
-
-
 .game {
   align-self: center;
   display: grid;

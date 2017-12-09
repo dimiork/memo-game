@@ -7,16 +7,17 @@ import CardView from './CardView.js';
 export default class GameView {
   constructor (model) {
     this.model = model;
-    // console.log('GameView Model', model);
     this.el = document.createElement('div');
+
 
     this.checkMatch = this.checkMatch.bind(this);
     
-    this.model.generateCards(18);
     this.render();
-    Event.on("cardFlippedEvent", this.checkMatch)
+    
+    Event.on("cardFlippedEvent", this.checkMatch);
+    Event.on("game:start", this.startGame);
   }
-  
+
   checkMatch(card) {
     // console.log('CHECK MATCH CALLED', this.model['cardsClicked'], card);
     if(this.model['cardsClicked'] < 2) {
@@ -57,14 +58,20 @@ export default class GameView {
     }
   }
 
-  render() {
 
-    this.el.classList.add('game', 'game_size_6')
+
+
+
+  render(size) {
+    let gameSize = size * size / 2 || 18;
+    this.model.generateCards(gameSize);
+    this.el.classList.add('game', `game_size_${ size }`)
     // console.log('GameView Render', this.model['cardSet']);
     let cardModels = this.model['cardSet'];
     cardModels.forEach((cardModel) => {
       let cardView = new CardView(cardModel);
       this.el.appendChild(cardView.el);
     });
+    return this.el;
   }
 }
