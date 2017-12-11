@@ -8,7 +8,6 @@ const config = {
 };
 
 export function ImageIcons (qty) {
-	console.log(qty, typeof qty);
 	let images = config.size;
 	let start = Math.floor(Math.random() * config.size);
 	start = (start + qty) > config.size ? start - (start + qty - config.size) : start;
