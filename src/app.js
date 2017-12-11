@@ -1,20 +1,10 @@
+import { qs, qsa, $on } from './utils/helpers';
 
-import Controller from './Controller.js';
-
-
+import Controller from './MainController';
 
 import './app.less';
 
 
-
-
-
-
-// const uiView = new UIView(appRoot);
-// uiView.render();
-let appRoot = document.querySelector('#app')
-const controller = new Controller();
-controller.initApp(appRoot);
-
-
-// appRoot.appendChild(gameView.el);
+const app = qs('.app');
+const setView = () => new Controller(app);;
+$on(window, 'load', setView);
