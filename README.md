@@ -1,5 +1,6 @@
 # Memo-game
-MVC-like memo game on native ES6
+MVC-like memo game on native ES6. [Demo](https://dimiork.github.io/memo-game/ "Demo")
+
 
 ### Installation
 1. Clone repository
